@@ -49,7 +49,7 @@ class ApiProvider {
   Future<Quiz> getTheQuizObject() async {
     var response = await http.post(url);
     Map<String, dynamic> theBody = jsonDecode(response.body);
-    String question = theBody['results'][0]['question'];
+    String question = theBody['results'][0]['question'].toString();
     String correctAnswer = theBody['results'][0]['correct_answer'];
     List<dynamic> inCorrectAnswers = theBody['results'][0]["incorrect_answers"];
 
