@@ -10,25 +10,26 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  OpenTrivia openTrivia = OpenTrivia();
+  ApiProvider apiProvider = ApiProvider();
   Quiz aQuiz;
-  String question;
-  String correctAnswer;
-  String inCorrectAnswer1;
-  String inCorrectAnswer2;
-  String inCorrectAnswer3;
+  String question = "Question is loading";
+  String correctAnswer = "answer";
+  List<dynamic> inCorrectAnswers = ["answers", "answer", "answer"];
 
-  Future<Quiz> getTheQuiz() async {
-    aQuiz = await openTrivia.getTheQuizObject();
-    question = aQuiz.question;
-    correctAnswer = aQuiz.correctAnswer;
-    List<String> inCorrectAnswers = aQuiz.inCorrectAnswers;
-    inCorrectAnswer1 = inCorrectAnswers[0];
-    inCorrectAnswer2 = inCorrectAnswers[1];
-    inCorrectAnswer3 = inCorrectAnswers[2];
-    print(inCorrectAnswer1);
+  void getTheQuiz() {
+    apiProvider.getTheQuizObject().then((aQuiz) {
+      setState(() {
+        question = aQuiz.question;
+        correctAnswer = aQuiz.correctAnswer;
+        inCorrectAnswers = aQuiz.inCorrectAnswers;
+      });
+    });
+  }
 
-    return aQuiz;
+  @override
+  void initState() {
+    getTheQuiz();
+    super.initState();
   }
 
   @override
@@ -50,124 +51,119 @@ class _QuizScreenState extends State<QuizScreen> {
       body: Container(
         color: Color(0xff616f39),
         child: SafeArea(
-          child: FutureBuilder(
-            future: getTheQuiz(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              return Column(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10.0),
-                      padding: EdgeInsets.all(10.0),
-                      child: Center(
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(10.0),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          "1 out of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "$question",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  color: Color(0xff252525),
+                  child: Row(
+                    children: [
+                      Expanded(
                         child: Column(
                           children: [
-                            Text(
-                              "1 out of 10",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Expanded(
+                            RaisedButton(
                               child: Text(
-                                question,
-                                textAlign: TextAlign.center,
+                                "$correctAnswer",
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffdddddd),
                                 ),
                               ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              padding: EdgeInsets.all(10.0),
+                              color: Color(0xff414141),
+                              onPressed: () => {},
+                            ),
+                            RaisedButton(
+                              child: Text(
+                                "${inCorrectAnswers[0]}",
+                                style: TextStyle(
+                                  color: Color(0xffdddddd),
+                                ),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              padding: EdgeInsets.all(10.0),
+                              color: Color(0xff414141),
+                              onPressed: () => {},
                             ),
                           ],
                         ),
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 10.0),
-                      color: Color(0xff252525),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                RaisedButton(
-                                  child: Text(
-                                    correctAnswer,
-                                    style: TextStyle(
-                                      color: Color(0xffdddddd),
-                                    ),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  padding: EdgeInsets.all(10.0),
-                                  color: Color(0xff414141),
-                                  onPressed: () => {},
+                      Expanded(
+                        child: Column(
+                          children: [
+                            RaisedButton(
+                              child: Text(
+                                "${inCorrectAnswers[2]}",
+                                style: TextStyle(
+                                  color: Color(0xffdddddd),
                                 ),
-                                RaisedButton(
-                                  child: Text(
-                                    "incorrect answer",
-                                    style: TextStyle(
-                                      color: Color(0xffdddddd),
-                                    ),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  padding: EdgeInsets.all(10.0),
-                                  color: Color(0xff414141),
-                                  onPressed: () => {},
-                                ),
-                              ],
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              padding: EdgeInsets.all(10.0),
+                              color: Color(0xff414141),
+                              onPressed: () => {},
                             ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                RaisedButton(
-                                  child: Text(
-                                    "incorrect answer",
-                                    style: TextStyle(
-                                      color: Color(0xffdddddd),
-                                    ),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  padding: EdgeInsets.all(10.0),
-                                  color: Color(0xff414141),
-                                  onPressed: () => {},
+                            RaisedButton(
+                              child: Text(
+                                "${inCorrectAnswers[1]}",
+                                style: TextStyle(
+                                  color: Color(0xffdddddd),
                                 ),
-                                RaisedButton(
-                                  child: Text(
-                                    "incorrect answer",
-                                    style: TextStyle(
-                                      color: Color(0xffdddddd),
-                                    ),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  padding: EdgeInsets.all(10.0),
-                                  color: Color(0xff414141),
-                                  onPressed: () => {},
-                                ),
-                              ],
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              padding: EdgeInsets.all(10.0),
+                              color: Color(0xff414141),
+                              onPressed: () => {},
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              );
-            },
+                ),
+              ),
+            ],
           ),
         ),
       ),

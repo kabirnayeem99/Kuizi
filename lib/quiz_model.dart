@@ -1,7 +1,7 @@
 class Quiz {
   String question;
   String correctAnswer;
-  List<String> inCorrectAnswers;
+  List<dynamic> inCorrectAnswers;
 
   Quiz({
     this.question,
