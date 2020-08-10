@@ -44,14 +44,15 @@ import 'dart:convert';
 
 class ApiProvider {
   String url =
-      "https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple";
+      "https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple";
 
-  Future<Quiz> getTheQuizObject() async {
+  Future<Quiz> getTheQuizObject(int questionNumber) async {
     var response = await http.post(url);
     Map<String, dynamic> theBody = jsonDecode(response.body);
-    String question = theBody['results'][0]['question'].toString();
-    String correctAnswer = theBody['results'][0]['correct_answer'];
-    List<dynamic> inCorrectAnswers = theBody['results'][0]["incorrect_answers"];
+    String question = theBody['results'][questionNumber]['question'].toString();
+    String correctAnswer = theBody['results'][questionNumber]['correct_answer'];
+    List<dynamic> inCorrectAnswers =
+        theBody['results'][questionNumber]["incorrect_answers"];
 
     Quiz quiz = Quiz(
       question: question,
