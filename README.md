@@ -1,16 +1,43 @@
-# flutter_quiz_app
+# MalUsa ![Build Status](https://github.com/kabirnayeem99/flutter_note_app/raw/master/project_assets/passing.svg)
 
-A new Flutter project.
+<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/icon.png" height="100px"/> <br>
+Kuizi is an awesome Quiz application that focuses on simplicity and beauty. This simple yet functional application uses OpenTDb api for quizes.
 
-## Getting Started
+# Screenshots:
+<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/question1.png" height="400px"/> <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/question1.png" height="400px"/>
 
-This project is a starting point for a Flutter application.
+<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/warning.png" height="400px"/> 
 
-A few resources to get you started if this is your first Flutter project:
+## Download
+<a href="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/app-release.apk">
+<img alt="Download Direct APK" src="https://github.com/kabirnayeem99/flutter_note_app/raw/master/project_assets/github-logo.png" height="50px"/></a> Download direct APK.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## App Icon
+<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contributing
+Looking to contribute something to Malusa? [Contact with me](aikhtibars@gmail.com).
+
+
+# License:
+The MIT License (MIT)
+
+Copyright (c) 2020 Naimul Kabir
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
