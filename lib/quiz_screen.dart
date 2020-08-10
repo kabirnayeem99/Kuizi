@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_quiz_app/api_providers.dart';
 import 'package:flutter_quiz_app/quiz_model.dart';
 import 'package:flutter_quiz_app/start_screen.dart';
@@ -31,44 +32,47 @@ class _QuizScreenState extends State<QuizScreen> {
   List<dynamic> inCorrectAnswers = ["answers", "answer", "answer"];
   Color _colorOfTheHead = getRandomColor();
 
-  checkAnswer() {
+  _incorrectAnswer() {
+    _checkAnswer(false);
+  }
+
+  _correctAnswer() {
+    _checkAnswer(true);
+  }
+
+  _checkAnswer(bool checkTest) {
     setState(
       () {
         if (_questionNumber < 10) {
+          if (checkTest == true) {
+            _counter++;
+          }
           _questionNumber++;
           getTheQuiz();
         } else {
           AwesomeDialog(
             context: context,
-            dialogType: DialogType.INFO,
-            animType: AnimType.BOTTOMSLIDE,
-            title: 'Dialog Title',
-            desc: 'Dialog description here.............',
+            dialogType: _counter > 8 ? DialogType.SUCCES : DialogType.ERROR,
+            animType: AnimType.SCALE,
+            title: _counter > 8 ? "Well done!!!" : "Need to improve.",
+            desc: 'You have earned of $_counter out of 10.',
+            btnOkColor: Color(0xff62a388),
+            btnCancelText: "",
+            btnOkIcon: Icons.restore,
+            btnOkOnPress: () {
+              _questionNumber = 0;
+              getTheQuiz();
+              _counter = 0;
+            },
+            btnOkText: "",
+            btnCancelIcon: Icons.arrow_forward,
+            btnCancelColor: Color(0xff801336),
             btnCancelOnPress: () {},
-            btnOkOnPress: () {},
           )..show();
-        }
-        if (true) {
-          _counter++;
         }
       },
     );
   }
-
-  // CustomBgAlertBox customBgAlertBox() {
-  //   return CustomBgAlertBox(
-  //     context: context,
-  //     title: "Stop!!!",
-  //     buttonText: "Go back",
-  //     infoMessage: "Your exam has come to an end",
-  //     icon: Icons.warning,
-  //     bgColor: Color(0xffdddddd),
-  //     titleTextColor: Color(0xff111111),
-  //     messageTextColor: Color(0xff111111),
-  //     buttonColor: Color(0xff414141),
-  //     buttonTextColor: Color(0xffdddddd),
-  //   );
-  // }
 
   void getTheQuiz() {
     apiProvider.getTheQuizObject(_questionNumber).then(
@@ -89,14 +93,14 @@ class _QuizScreenState extends State<QuizScreen> {
     return Container(
       height: 50.0,
       width: 50.0,
-      decoration: new ShapeDecoration(
-        shape: new CircleBorder(side: BorderSide.none),
+      decoration: ShapeDecoration(
+        shape: CircleBorder(side: BorderSide.none),
         color: Colors.white,
       ),
-      child: new Center(
-        child: new Text(
+      child: Center(
+        child: Text(
           "+" + _counter.toString(),
-          style: new TextStyle(
+          style: TextStyle(
             color: _colorOfTheHead,
             fontWeight: FontWeight.bold,
             fontSize: 16.0,
@@ -108,15 +112,23 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   void initState() {
+    getTheQuiz();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    getTheQuiz();
-
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         backgroundColor: _colorOfTheHead,
         elevation: 0.0,
         actions: [
@@ -125,7 +137,9 @@ class _QuizScreenState extends State<QuizScreen> {
               Icons.people,
               color: Colors.white,
             ),
-            onPressed: () => {},
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
         ],
       ),
@@ -186,7 +200,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               ),
                               padding: EdgeInsets.all(10.0),
                               color: Color(0xff414141),
-                              onPressed: checkAnswer,
+                              onPressed: _correctAnswer,
                             ),
                             RaisedButton(
                               child: Text(
@@ -200,7 +214,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               ),
                               padding: EdgeInsets.all(10.0),
                               color: Color(0xff414141),
-                              onPressed: checkAnswer,
+                              onPressed: _incorrectAnswer,
                             ),
                           ],
                         ),
@@ -220,7 +234,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               ),
                               padding: EdgeInsets.all(10.0),
                               color: Color(0xff414141),
-                              onPressed: checkAnswer,
+                              onPressed: _incorrectAnswer,
                             ),
                             RaisedButton(
                               child: Text(
@@ -234,7 +248,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               ),
                               padding: EdgeInsets.all(10.0),
                               color: Color(0xff414141),
-                              onPressed: checkAnswer,
+                              onPressed: _incorrectAnswer,
                             ),
                           ],
                         ),
