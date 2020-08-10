@@ -1,10 +1,10 @@
-# MalUsa ![Build Status](https://github.com/kabirnayeem99/flutter_note_app/raw/master/project_assets/passing.svg)
+# Kuizi ![Build Status](https://github.com/kabirnayeem99/flutter_note_app/raw/master/project_assets/passing.svg)
 
 <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/icon.png" height="100px"/> <br>
 Kuizi is an awesome Quiz application that focuses on simplicity and beauty. This simple yet functional application uses OpenTDb api for quizes.
 
 # Screenshots:
-<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/question1.png" height="400px"/> <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/question1.png" height="400px"/>
+<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/question1.png" height="400px"/> <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/question1.png" height="400px"/>
 
 <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/warning.png" height="400px"/> 
 
