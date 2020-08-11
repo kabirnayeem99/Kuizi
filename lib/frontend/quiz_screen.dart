@@ -6,8 +6,6 @@ import 'package:flutter_quiz_app/frontend/widgets/choice_button.dart';
 import 'package:flutter_quiz_app/frontend/widgets/score_button.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
-int _questionNumber = 0;
-
 class QuizScreen extends StatefulWidget {
   QuizScreen({Key key}) : super(key: key);
 
@@ -21,8 +19,9 @@ class _QuizScreenState extends State<QuizScreen> {
   String _question = "Question is loading";
   String _correctAnswer = "answer";
   List<dynamic> _inCorrectAnswers = ["answers", "answer", "answer"];
-  List<dynamic> _answerList;
+  List<dynamic> _answerList = ["answers", "answer", "answer", "answer"];
   Color _changingColor = Utilities.getRandomColor();
+  int _questionNumber = 0;
 
   _callIncorrectAnswer() {
     _checkAnswer(false);
