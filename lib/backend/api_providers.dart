@@ -7,7 +7,7 @@ var unescape = new HtmlUnescape();
 
 class ApiProvider {
   String url =
-      "https://opentdb.com/api.php?amount=10&category=31&difficulty=medium&type=multiple";
+      "https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple";
 
   Future<Quiz> getTheQuizObject(int questionNumber) async {
     var response = await http.post(url);
