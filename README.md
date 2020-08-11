@@ -14,7 +14,7 @@ Kuizi is an awesome Quiz application that focuses on simplicity and beauty. This
 <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ## Contributing
-Looking to contribute something to Malusa? [Contact with me](aikhtibars@gmail.com).
+Looking to contribute something to Kuizi? [Contact with me](aikhtibars@gmail.com).
 
 
 # License:
