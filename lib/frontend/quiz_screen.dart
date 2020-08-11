@@ -18,7 +18,7 @@ class _QuizScreenState extends State<QuizScreen> {
   ApiProvider _apiProvider = ApiProvider();
   String _question = "Question is loading";
   String _correctAnswer = "answer";
-  List<dynamic> _inCorrectAnswers = ["answers", "answer", "answer"];
+  List<dynamic> _inCorrectAnswers;
   List<dynamic> _answerList = ["answers", "answer", "answer", "answer"];
   Color _changingColor = Utilities.getRandomColor();
   int _questionNumber = 0;
