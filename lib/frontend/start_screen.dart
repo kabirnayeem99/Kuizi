@@ -17,45 +17,44 @@ class _StartScreenState extends State<StartScreen> {
         color: Color(0xffffffff),
         child: Center(
           child: SafeArea(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Image.asset("assets/images/thinking_girl.jpg"),
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Image.asset("assets/images/thinking_girl.jpg"),
+                ),
+                FlatButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(90.0),
                   ),
-                  FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(90.0),
-                    ),
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QuizScreen(),
-                        ),
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuizScreen(),
                       ),
-                    },
-                    color: Pallette.attractiveRed,
-                    child: Icon(
-                      Icons.play_arrow,
-                      color: Colors.white,
                     ),
+                  },
+                  color: Pallette.attractiveRed,
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
                   ),
-                  Container(
+                ),
+                Expanded(
+                  child: Container(
                     margin: EdgeInsets.all(20.0),
                     child: Text(
                       "Have fun. Do Quiz.",
                       style: TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 30.0,
                         fontWeight: FontWeight.bold,
                         color: Pallette.attractiveRed,
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

@@ -168,18 +168,13 @@ Widget questionPart(color, counter, question) {
                 height: 10.0,
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Flexible(
-                child: Text(
-                  "$question",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+            Text(
+              "$question",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],

@@ -4,9 +4,7 @@
 Kuizi is an awesome Quiz application that focuses on simplicity and beauty. This simple yet functional application uses OpenTDb api for quizes.
 
 # Screenshots:
-<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/question1.png" height="400px"/> <img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/question1.png" height="400px"/>
-
-<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/warning.png" height="400px"/> 
+<img src="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/mockup.png" height="400px"/>
 
 ## Download
 <a href="https://github.com/kabirnayeem99/flutter_quiz_app/raw/master/files/app-release.apk">
