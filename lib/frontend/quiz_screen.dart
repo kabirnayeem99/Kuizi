@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/backend/api_providers.dart';
-import 'package:flutter_quiz_app/backend/utilities/random_number.dart';
-import 'package:flutter_quiz_app/backend/utilities/utilities.dart';
-import 'package:flutter_quiz_app/frontend/widgets/choice_button.dart';
-import 'package:flutter_quiz_app/frontend/widgets/score_button.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
+
+import '../backend/api_providers.dart';
+import '../backend/utilities/random_number.dart';
+import '../backend/utilities/utilities.dart';
+import 'widgets/choice_button.dart';
+import 'widgets/score_button.dart';
 
 class QuizScreen extends StatefulWidget {
   QuizScreen({Key key}) : super(key: key);
@@ -71,8 +72,8 @@ class _QuizScreenState extends State<QuizScreen> {
         setState(
           () {
             _question = aQuiz.question;
-            _correctAnswer = aQuiz.correctAnswer;
-            _inCorrectAnswers = aQuiz.inCorrectAnswers;
+            _correctAnswer = aQuiz.rightAnswer;
+            _inCorrectAnswers = aQuiz.wrongAnswers;
             _answerList = [
               _inCorrectAnswers[0],
               _inCorrectAnswers[1],

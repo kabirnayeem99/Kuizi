@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/backend/utilities/color_pallette.dart';
+
+import '../../backend/utilities/color_pallette.dart';
 
 class ChoiceButton extends StatelessWidget {
   const ChoiceButton({

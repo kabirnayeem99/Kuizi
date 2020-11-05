@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/backend/utilities/color_pallette.dart';
-import 'package:flutter_quiz_app/frontend/quiz_screen.dart';
+import '../backend/utilities/color_pallette.dart';
+import 'quiz_screen.dart';
 
 class StartScreen extends StatefulWidget {
   StartScreen({Key key}) : super(key: key);

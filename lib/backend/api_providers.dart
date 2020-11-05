@@ -1,7 +1,9 @@
-import 'package:flutter_quiz_app/backend/quiz_model.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
 import 'package:html_unescape/html_unescape.dart';
+import 'package:http/http.dart' as http;
+
+import '../features/quiz_fetch_n_evaluation/domain/entity/quiz.dart';
 
 var unescape = new HtmlUnescape();
 
@@ -20,8 +22,8 @@ class ApiProvider {
 
     Quiz quiz = Quiz(
       question: question,
-      correctAnswer: correctAnswer,
-      inCorrectAnswers: inCorrectAnswers,
+      rightAnswer: correctAnswer,
+      wrongAnswers: inCorrectAnswers,
     );
     return quiz;
   }
