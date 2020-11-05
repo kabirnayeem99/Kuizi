@@ -1,5 +1,5 @@
 name: flutter_quiz_app
-description: A new Flutter project.
+description: a cross platform quiz application.
 
 publish_to: 'none'
 
@@ -29,7 +29,6 @@ dev_dependencies:
   mockito: ^4.1.3
 
 flutter:
-
   uses-material-design: true
 
   assets:
