@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+
 import '../../domain/entity/quiz.dart';
 
 // ignore: must_be_immutable
@@ -16,11 +17,12 @@ class QuizModel extends Quiz {
             rightAnswer: rightAnswer,
             wrongAnswers: wrongAnswers);
 
-  QuizModel.fromMap(Map<String, dynamic> map, this.question, this.wrongAnswers,
-      this.rightAnswer) {
-    this.question = map["question"];
-    this.rightAnswer = map["correct_answer"];
-    this.wrongAnswers = map["incorrect_answers"];
+  factory QuizModel.fromJson(Map<String, dynamic> json) {
+    return QuizModel(
+      question: 'question',
+      wrongAnswers: ['wrongAnswers'],
+      rightAnswer: 'rightAnswer',
+    );
   }
 
   Map<String, dynamic> toJson() {
