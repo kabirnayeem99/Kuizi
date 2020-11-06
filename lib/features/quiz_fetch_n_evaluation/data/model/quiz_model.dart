@@ -37,6 +37,7 @@ class QuizModel extends Quiz {
         jsonDecoded['results'][questionNumber]['correct_answer'];
     List<String> _wrongAnswers =
         jsonDecoded['results'][questionNumber]["incorrect_answers"];
+    print(_question);
     return QuizModel(
       question: _question,
       answer1: _wrongAnswers[0],

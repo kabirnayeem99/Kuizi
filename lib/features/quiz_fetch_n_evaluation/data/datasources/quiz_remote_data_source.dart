@@ -20,7 +20,6 @@ class QuizRemoteDataSourceImpl implements QuizRemoteDataSource {
     final response = await client.get(
       'https://opentdb.com/api.php?amount=10',
     );
-
     if (response.statusCode == 200) {
       return QuizModel.fromJson(json.decode(response.body));
     } else {

@@ -1,240 +1,239 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/material.dart';
+// import 'package:awesome_dialog/awesome_dialog.dart';
+// import 'package:flutter/material.dart';
 
-import '../backend/api_providers.dart';
-import '../backend/utilities/random_number.dart';
-import '../backend/utilities/utilities.dart';
-import 'widgets/choice_button.dart';
-import 'widgets/score_button.dart';
+// import '../backend/utilities/random_number.dart';
+// import '../backend/utilities/utilities.dart';
+// import 'widgets/choice_button.dart';
+// import 'widgets/score_button.dart';
 
-class QuizScreen extends StatefulWidget {
-  QuizScreen({Key key}) : super(key: key);
+// class QuizScreen extends StatefulWidget {
+//   QuizScreen({Key key}) : super(key: key);
 
-  @override
-  _QuizScreenState createState() => _QuizScreenState();
-}
+//   @override
+//   _QuizScreenState createState() => _QuizScreenState();
+// }
 
-class _QuizScreenState extends State<QuizScreen> {
-  int _counter = 0;
-  ApiProvider _apiProvider = ApiProvider();
-  String _question = "Question is loading";
-  String _correctAnswer = "answer";
-  List<dynamic> _inCorrectAnswers;
-  List<dynamic> _answerList = ["answers", "answer", "answer", "answer"];
-  Color _changingColor = Utilities.getRandomColor();
-  int _questionNumber = 0;
+// class _QuizScreenState extends State<QuizScreen> {
+//   int _counter = 0;
 
-  _callIncorrectAnswer() {
-    _checkAnswer(false);
-  }
+//   String _question = "Question is loading";
+//   String _correctAnswer = "answer";
+//   List<dynamic> _inCorrectAnswers;
+//   List<dynamic> _answerList = ["answers", "answer", "answer", "answer"];
+//   Color _changingColor = Utilities.getRandomColor();
+//   int _questionNumber = 0;
 
-  _callCorrectAnswer() {
-    _checkAnswer(true);
-  }
+//   _callIncorrectAnswer() {
+//     _checkAnswer(false);
+//   }
 
-  _checkAnswer(bool checkTest) {
-    setState(
-      () {
-        if (_questionNumber < 9) {
-          if (checkTest == true) {
-            _counter++;
-          }
-          _questionNumber++;
-          getTheQuiz();
-        } else {
-          AwesomeDialog(
-            context: context,
-            dialogType: _counter > 7 ? DialogType.SUCCES : DialogType.ERROR,
-            animType: AnimType.SCALE,
-            title: _counter > 7 ? "Well done!!!" : "Need to improve.",
-            desc: 'You have earned of $_counter out of 10.',
-            btnOkColor: Color(0xff62a388),
-            btnCancelText: "",
-            btnOkIcon: Icons.restore,
-            btnOkOnPress: () {
-              _questionNumber = 0;
-              getTheQuiz();
-              _counter = 0;
-            },
-            btnOkText: "",
-            btnCancelIcon: Icons.arrow_forward,
-            btnCancelColor: Color(0xff801336),
-            btnCancelOnPress: () {},
-          )..show();
-        }
-      },
-    );
-  }
+//   _callCorrectAnswer() {
+//     _checkAnswer(true);
+//   }
 
-  void getTheQuiz() {
-    _apiProvider.getTheQuizObject(_questionNumber).then(
-      (aQuiz) {
-        setState(
-          () {
-            _question = aQuiz.question;
-            _correctAnswer = aQuiz.rightAnswer;
-            _inCorrectAnswers = aQuiz.wrongAnswers;
-            _answerList = [
-              _inCorrectAnswers[0],
-              _inCorrectAnswers[1],
-              _inCorrectAnswers[2],
-              _correctAnswer
-            ];
-            _changingColor = Utilities.getRandomColor();
-          },
-        );
-      },
-    );
-  }
+//   _checkAnswer(bool checkTest) {
+//     setState(
+//       () {
+//         if (_questionNumber < 9) {
+//           if (checkTest == true) {
+//             _counter++;
+//           }
+//           _questionNumber++;
+//           getTheQuiz();
+//         } else {
+//           AwesomeDialog(
+//             context: context,
+//             dialogType: _counter > 7 ? DialogType.SUCCES : DialogType.ERROR,
+//             animType: AnimType.SCALE,
+//             title: _counter > 7 ? "Well done!!!" : "Need to improve.",
+//             desc: 'You have earned of $_counter out of 10.',
+//             btnOkColor: Color(0xff62a388),
+//             btnCancelText: "",
+//             btnOkIcon: Icons.restore,
+//             btnOkOnPress: () {
+//               _questionNumber = 0;
+//               getTheQuiz();
+//               _counter = 0;
+//             },
+//             btnOkText: "",
+//             btnCancelIcon: Icons.arrow_forward,
+//             btnCancelColor: Color(0xff801336),
+//             btnCancelOnPress: () {},
+//           )..show();
+//         }
+//       },
+//     );
+//   }
 
-  @override
-  void initState() {
-    getTheQuiz();
-    super.initState();
-  }
+//   void getTheQuiz() {
+//     _apip.getTheQuizObject(_questionNumber).then(
+//       (aQuiz) {
+//         setState(
+//           () {
+//             _question = aQuiz.question;
+//             _correctAnswer = aQuiz.rightAnswer;
+//             _inCorrectAnswers = aQuiz.wrongAnswers;
+//             _answerList = [
+//               _inCorrectAnswers[0],
+//               _inCorrectAnswers[1],
+//               _inCorrectAnswers[2],
+//               _correctAnswer
+//             ];
+//             _changingColor = Utilities.getRandomColor();
+//           },
+//         );
+//       },
+//     );
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            " ${_questionNumber + 1} out of 10",
-          ),
-        ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.clear,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        backgroundColor: _changingColor,
-        elevation: 0.0,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.restore,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              _questionNumber = 0;
-              getTheQuiz();
-              _counter = 0;
-            },
-          ),
-        ],
-      ),
-      body: Container(
-        color: _changingColor,
-        child: SafeArea(
-          child: Column(
-            children: [
-              questionPart(
-                _changingColor,
-                _counter,
-                _question,
-              ),
-              multipleChoicePart(
-                RandomNumber.shuffle(_answerList),
-                _correctAnswer,
-                _callCorrectAnswer,
-                _callIncorrectAnswer,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   void initState() {
+//     getTheQuiz();
+//     super.initState();
+//   }
 
-Widget questionPart(color, counter, question) {
-  return Expanded(
-    child: Container(
-      color: color,
-      margin: EdgeInsets.all(10.0),
-      padding: EdgeInsets.all(10.0),
-      child: Center(
-        child: Column(
-          children: [
-            getScoreButton(
-              counter,
-              color,
-            ),
-            Flexible(
-              child: SizedBox(
-                height: 10.0,
-              ),
-            ),
-            Text(
-              "$question",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Center(
+//           child: Text(
+//             " ${_questionNumber + 1} out of 10",
+//           ),
+//         ),
+//         leading: IconButton(
+//           icon: Icon(
+//             Icons.clear,
+//             color: Colors.white,
+//           ),
+//           onPressed: () {
+//             Navigator.of(context).pop();
+//           },
+//         ),
+//         backgroundColor: _changingColor,
+//         elevation: 0.0,
+//         actions: [
+//           IconButton(
+//             icon: Icon(
+//               Icons.restore,
+//               color: Colors.white,
+//             ),
+//             onPressed: () {
+//               _questionNumber = 0;
+//               getTheQuiz();
+//               _counter = 0;
+//             },
+//           ),
+//         ],
+//       ),
+//       body: Container(
+//         color: _changingColor,
+//         child: SafeArea(
+//           child: Column(
+//             children: [
+//               questionPart(
+//                 _changingColor,
+//                 _counter,
+//                 _question,
+//               ),
+//               multipleChoicePart(
+//                 RandomNumber.shuffle(_answerList),
+//                 _correctAnswer,
+//                 _callCorrectAnswer,
+//                 _callIncorrectAnswer,
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-Widget multipleChoicePart(
-  List<dynamic> answerList,
-  String correctAnswer,
-  Function callCorrectAnswer,
-  Function callIncorrectAnswer,
-) {
-  return Expanded(
-    child: Container(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
-      color: Color(0xff252525),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              children: [
-                ChoiceButton(
-                  answerChoice: answerList[0],
-                  functionCall: answerList[0] == correctAnswer
-                      ? callCorrectAnswer
-                      : callIncorrectAnswer,
-                ),
-                ChoiceButton(
-                  answerChoice: answerList[1],
-                  functionCall: answerList[1] == correctAnswer
-                      ? callCorrectAnswer
-                      : callIncorrectAnswer,
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Column(
-              children: [
-                ChoiceButton(
-                  answerChoice: answerList[2],
-                  functionCall: answerList[2] == correctAnswer
-                      ? callCorrectAnswer
-                      : callIncorrectAnswer,
-                ),
-                ChoiceButton(
-                  answerChoice: answerList[3],
-                  functionCall: answerList[3] == correctAnswer
-                      ? callCorrectAnswer
-                      : callIncorrectAnswer,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
+// Widget questionPart(color, counter, question) {
+//   return Expanded(
+//     child: Container(
+//       color: color,
+//       margin: EdgeInsets.all(10.0),
+//       padding: EdgeInsets.all(10.0),
+//       child: Center(
+//         child: Column(
+//           children: [
+//             getScoreButton(
+//               counter,
+//               color,
+//             ),
+//             Flexible(
+//               child: SizedBox(
+//                 height: 10.0,
+//               ),
+//             ),
+//             Text(
+//               "$question",
+//               textAlign: TextAlign.center,
+//               style: TextStyle(
+//                 color: Colors.white,
+//                 fontSize: 20.0,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// Widget multipleChoicePart(
+//   List<dynamic> answerList,
+//   String correctAnswer,
+//   Function callCorrectAnswer,
+//   Function callIncorrectAnswer,
+// ) {
+//   return Expanded(
+//     child: Container(
+//       padding: EdgeInsets.symmetric(vertical: 20.0),
+//       color: Color(0xff252525),
+//       child: Row(
+//         children: [
+//           Expanded(
+//             child: Column(
+//               children: [
+//                 ChoiceButton(
+//                   answerChoice: answerList[0],
+//                   functionCall: answerList[0] == correctAnswer
+//                       ? callCorrectAnswer
+//                       : callIncorrectAnswer,
+//                 ),
+//                 ChoiceButton(
+//                   answerChoice: answerList[1],
+//                   functionCall: answerList[1] == correctAnswer
+//                       ? callCorrectAnswer
+//                       : callIncorrectAnswer,
+//                 ),
+//               ],
+//             ),
+//           ),
+//           Expanded(
+//             child: Column(
+//               children: [
+//                 ChoiceButton(
+//                   answerChoice: answerList[2],
+//                   functionCall: answerList[2] == correctAnswer
+//                       ? callCorrectAnswer
+//                       : callIncorrectAnswer,
+//                 ),
+//                 ChoiceButton(
+//                   answerChoice: answerList[3],
+//                   functionCall: answerList[3] == correctAnswer
+//                       ? callCorrectAnswer
+//                       : callIncorrectAnswer,
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     ),
+//   );
+// }
