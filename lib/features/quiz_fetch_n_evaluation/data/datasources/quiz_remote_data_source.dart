@@ -7,6 +7,10 @@ import '../../../../core/error/expections.dart';
 import '../model/quiz_model.dart';
 
 abstract class QuizRemoteDataSource {
+  final http.Client client;
+
+  QuizRemoteDataSource({@required this.client});
+
   Future<QuizModel> getQuizes();
 }
 

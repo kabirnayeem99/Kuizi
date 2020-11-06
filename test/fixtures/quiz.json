@@ -1,0 +1,121 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Science: Computers",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "What does AD stand for in relation to Windows Operating Systems? ",
+            "correct_answer": "Active Directory",
+            "incorrect_answers": [
+                "Alternative Drive",
+                "Automated Database",
+                "Active Department"
+            ]
+        },
+        {
+            "category": "Politics",
+            "type": "boolean",
+            "difficulty": "easy",
+            "question": "There was a satirical candidate named &quot;Deez Nuts&quot; running in the 2016 US presidential elections.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "Geography",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "The derisive acronym &quot;PIIGS&quot; refers to which of the following European countries and their economic statuses?",
+            "correct_answer": "Portugal, Ireland, Italy, Greece, Spain",
+            "incorrect_answers": [
+                "Poland, Iceland, Italy, Greece, Serbia",
+                "Poland, Iceland, Italy, Greenland, Spain",
+                "Portugal, Iceland, Ireland, Greece, Serbia"
+            ]
+        },
+        {
+            "category": "Science & Nature",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Which of the following blood vessels carries deoxygenated blood?",
+            "correct_answer": "Pulmonary Artery",
+            "incorrect_answers": [
+                "Pulmonary Vein",
+                "Aorta",
+                "Coronary Artery"
+            ]
+        },
+        {
+            "category": "Mythology",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "This Greek goddess&#039;s name was chosen for the dwarf planet responsible for discord on Pluto&#039;s classification amongst astronomers.",
+            "correct_answer": "Eris",
+            "incorrect_answers": [
+                "Charon",
+                "Ceres",
+                "Dysnomia"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "easy",
+            "question": "The Sun rises from the North.",
+            "correct_answer": "False",
+            "incorrect_answers": [
+                "True"
+            ]
+        },
+        {
+            "category": "Entertainment: Comics",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "In what Homestuck Update was [S] Game Over released?",
+            "correct_answer": "October 25th, 2014",
+            "incorrect_answers": [
+                "April 13th, 2009",
+                "April 8th, 2012",
+                "August 28th, 2003"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "In World of Warcraft, which raid instance features a chess event?",
+            "correct_answer": "Karazhan",
+            "incorrect_answers": [
+                "Zul&#039;Aman",
+                "Blackwing Lair",
+                "Temple of Ahn&#039;Qiraj"
+            ]
+        },
+        {
+            "category": "Entertainment: Cartoon & Animations",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Who voiced Finn in Adventure Time?",
+            "correct_answer": "Jeremy Shada",
+            "incorrect_answers": [
+                "Nolan North",
+                "John DiMaggio",
+                "Tom Kenny"
+            ]
+        },
+        {
+            "category": "Entertainment: Comics",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Found in the Marvel Comics fictional universe, what is the name of the nearly indestructible metal that coats Wolverine&#039;s bones and claws?",
+            "correct_answer": "Adamantium",
+            "incorrect_answers": [
+                "Titanium",
+                "Vibranium",
+                "Carbonadium"
+            ]
+        }
+    ]
+}
