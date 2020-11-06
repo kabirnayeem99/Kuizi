@@ -1,12 +1,12 @@
+import 'package:html_unescape/html_unescape.dart';
 import 'package:meta/meta.dart';
 
 import '../../domain/entity/quiz.dart';
 
-// ignore: must_be_immutable
 class QuizModel extends Quiz {
-  var question;
-  var wrongAnswers;
-  var rightAnswer;
+  final String question;
+  final List<String> wrongAnswers;
+  final String rightAnswer;
 
   QuizModel({
     @required this.question,
@@ -17,11 +17,20 @@ class QuizModel extends Quiz {
             rightAnswer: rightAnswer,
             wrongAnswers: wrongAnswers);
 
-  factory QuizModel.fromJson(Map<String, dynamic> json) {
+  factory QuizModel.fromJson(Map<String, dynamic> jsonDecoded) {
+    var unescape = new HtmlUnescape();
+
+    int questionNumber = 0;
+    String _question =
+        unescape.convert(jsonDecoded['results'][questionNumber]['question']);
+    String _rightAnswer =
+        jsonDecoded['results'][questionNumber]['correct_answer'];
+    List<dynamic> _wrongAnswers =
+        jsonDecoded['results'][questionNumber]["incorrect_answers"];
     return QuizModel(
-      question: 'question',
-      wrongAnswers: ['wrongAnswers'],
-      rightAnswer: 'rightAnswer',
+      question: _question,
+      wrongAnswers: _wrongAnswers,
+      rightAnswer: _rightAnswer,
     );
   }
 
