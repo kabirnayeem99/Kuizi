@@ -31,12 +31,11 @@ main() {
       //arrange
       when(mockRemoteDataSource.getQuizes()).thenAnswer(
           (realInvocation) async =>
-              QuizModel.fromJson(json.decode(fixture('quiz.json'))));
+              QuizModel.fromJson(await json.decode(fixture('quiz.json'))));
       //act
       final result = await mockRemoteDataSource.getQuizes();
       //assert
-      final expected =
-          await QuizModel.fromJson(json.decode(fixture('quiz.json')));
+      final expected = QuizModel.fromJson(json.decode(fixture('quiz.json')));
       expect(result, expected);
     },
   );
