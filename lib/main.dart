@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'frontend/start_screen.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -11,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Kuizo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,

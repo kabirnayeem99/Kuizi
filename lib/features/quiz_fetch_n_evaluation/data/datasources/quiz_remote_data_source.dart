@@ -14,6 +14,8 @@ abstract class QuizRemoteDataSource {
   Future<QuizModel> getQuizes();
 }
 
+const REMOTE_API_KEY = 'ABFDmbJTx4LcrUxZ7cqjOLDTHjNIcaOyJ9smBvmT';
+
 class QuizRemoteDataSourceImpl implements QuizRemoteDataSource {
   final http.Client client;
 
@@ -22,7 +24,7 @@ class QuizRemoteDataSourceImpl implements QuizRemoteDataSource {
   @override
   Future<QuizModel> getQuizes() async {
     final response = await client.get(
-      'https://opentdb.com/api.php?amount=10',
+      'https://opentdb.com/api.php?amount=10&type=multiple',
     );
     if (response.statusCode == 200) {
       return QuizModel.fromJson(json.decode(response.body));

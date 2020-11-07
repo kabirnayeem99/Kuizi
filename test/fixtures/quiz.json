@@ -2,119 +2,123 @@
     "response_code": 0,
     "results": [
         {
+            "category": "Science & Nature",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "What is considered the rarist form of color blindness?",
+            "correct_answer": "Blue",
+            "incorrect_answers": [
+                "Red",
+                "Green",
+                "Purple"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "How would one say goodbye in Spanish?",
+            "correct_answer": "Adi&oacute;s",
+            "incorrect_answers": [
+                " Hola",
+                "Au Revoir",
+                "Salir"
+            ]
+        },
+        {
             "category": "Science: Computers",
             "type": "multiple",
-            "difficulty": "medium",
-            "question": "What does AD stand for in relation to Windows Operating Systems? ",
-            "correct_answer": "Active Directory",
-            "incorrect_answers": [
-                "Alternative Drive",
-                "Automated Database",
-                "Active Department"
-            ]
-        },
-        {
-            "category": "Politics",
-            "type": "boolean",
             "difficulty": "easy",
-            "question": "There was a satirical candidate named &quot;Deez Nuts&quot; running in the 2016 US presidential elections.",
-            "correct_answer": "True",
+            "question": "The programming language &#039;Swift&#039; was created to replace what other programming language?",
+            "correct_answer": "Objective-C",
             "incorrect_answers": [
-                "False"
-            ]
-        },
-        {
-            "category": "Geography",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "The derisive acronym &quot;PIIGS&quot; refers to which of the following European countries and their economic statuses?",
-            "correct_answer": "Portugal, Ireland, Italy, Greece, Spain",
-            "incorrect_answers": [
-                "Poland, Iceland, Italy, Greece, Serbia",
-                "Poland, Iceland, Italy, Greenland, Spain",
-                "Portugal, Iceland, Ireland, Greece, Serbia"
+                "C#",
+                "Ruby",
+                "C++"
             ]
         },
         {
             "category": "Science & Nature",
             "type": "multiple",
-            "difficulty": "easy",
-            "question": "Which of the following blood vessels carries deoxygenated blood?",
-            "correct_answer": "Pulmonary Artery",
+            "difficulty": "hard",
+            "question": "Which horizon in a soil profile consists of bedrock?",
+            "correct_answer": "R",
             "incorrect_answers": [
-                "Pulmonary Vein",
-                "Aorta",
-                "Coronary Artery"
+                "O",
+                "B",
+                "D"
             ]
         },
         {
-            "category": "Mythology",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "This Greek goddess&#039;s name was chosen for the dwarf planet responsible for discord on Pluto&#039;s classification amongst astronomers.",
-            "correct_answer": "Eris",
-            "incorrect_answers": [
-                "Charon",
-                "Ceres",
-                "Dysnomia"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "The Sun rises from the North.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "Entertainment: Comics",
+            "category": "Entertainment: Music",
             "type": "multiple",
             "difficulty": "hard",
-            "question": "In what Homestuck Update was [S] Game Over released?",
-            "correct_answer": "October 25th, 2014",
+            "question": "Which of these songs is NOT included in the Suicide Squad OST?",
+            "correct_answer": "Skies on Fire - AC\/DC",
             "incorrect_answers": [
-                "April 13th, 2009",
-                "April 8th, 2012",
-                "August 28th, 2003"
+                "Heathens - Twenty One Pilots",
+                "Without Me - Eminem",
+                "Fortunate Son - Creedence Clearwater Revival"
             ]
         },
         {
             "category": "Entertainment: Video Games",
             "type": "multiple",
+            "difficulty": "medium",
+            "question": "Without enchantments, which pickaxe in minecraft mines blocks the quickest.",
+            "correct_answer": "Golden ",
+            "incorrect_answers": [
+                "Diamond",
+                "Iron",
+                "Obsidian"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In which location does Dark Sun Gwyndolin reside in &quot;Dark Souls&quot;?",
+            "correct_answer": "Anor Londo",
+            "incorrect_answers": [
+                "Firelink Shrine",
+                "Blighttown",
+                "Kiln of the first flame"
+            ]
+        },
+        {
+            "category": "Entertainment: Board Games",
+            "type": "multiple",
             "difficulty": "hard",
-            "question": "In World of Warcraft, which raid instance features a chess event?",
-            "correct_answer": "Karazhan",
+            "question": "What is the most challenging monster in the Dungeons &amp; Dragons 5th Edition Monster Manual?",
+            "correct_answer": "Tarrasque",
             "incorrect_answers": [
-                "Zul&#039;Aman",
-                "Blackwing Lair",
-                "Temple of Ahn&#039;Qiraj"
+                "Beholder",
+                "Displacer Beast",
+                "Lich"
             ]
         },
         {
-            "category": "Entertainment: Cartoon & Animations",
+            "category": "Entertainment: Music",
             "type": "multiple",
             "difficulty": "medium",
-            "question": "Who voiced Finn in Adventure Time?",
-            "correct_answer": "Jeremy Shada",
+            "question": "Liam Howlett founded which electronic music group in 1990?",
+            "correct_answer": "The Prodigy",
             "incorrect_answers": [
-                "Nolan North",
-                "John DiMaggio",
-                "Tom Kenny"
+                "The Chemical Brothers",
+                "The Crystal Method",
+                "Infected Mushroom"
             ]
         },
         {
-            "category": "Entertainment: Comics",
+            "category": "Entertainment: Film",
             "type": "multiple",
-            "difficulty": "medium",
-            "question": "Found in the Marvel Comics fictional universe, what is the name of the nearly indestructible metal that coats Wolverine&#039;s bones and claws?",
-            "correct_answer": "Adamantium",
+            "difficulty": "easy",
+            "question": "What is the name of the fictional retro-mod band starring Austin Powers as the lead vocalist?",
+            "correct_answer": "Ming Tea",
             "incorrect_answers": [
-                "Titanium",
-                "Vibranium",
-                "Carbonadium"
+                "Cough Fi",
+                "Spear Mint",
+                "Mister E"
             ]
         }
     ]
