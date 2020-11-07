@@ -1,17 +1,19 @@
+import 'package:flutter_quiz_app/features/quiz_fetch_n_evaluation/domain/entity/result.dart';
 import 'package:meta/meta.dart';
 
-class Results {
+// ignore: must_be_immutable
+class ResultsModel extends Results {
   String question;
   String correctAnswer;
   List<String> allAnswers;
 
-  Results({
+  ResultsModel({
     @required this.question,
     @required this.correctAnswer,
     @required this.allAnswers,
   });
 
-  Results.fromJson(Map<String, dynamic> jsonDecoded) {
+  ResultsModel.fromJson(Map<String, dynamic> jsonDecoded) {
     question = jsonDecoded['question'];
     correctAnswer = jsonDecoded['correct_answer'];
     allAnswers = jsonDecoded['incorrect_answers'].cast<String>();

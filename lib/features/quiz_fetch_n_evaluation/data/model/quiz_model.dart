@@ -59,18 +59,19 @@ import 'result_model.dart';
 //   }
 // }
 
+// ignore: must_be_immutable
 class QuizModel extends Quiz {
   int responseCode;
-  List<Results> results;
+  List<ResultsModel> results;
 
   QuizModel({this.responseCode, this.results});
 
   QuizModel.fromJson(Map<String, dynamic> json) {
     responseCode = json['response_code'];
     if (json['results'] != null) {
-      results = new List<Results>();
+      results = new List<ResultsModel>();
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new ResultsModel.fromJson(v));
       });
     }
   }
